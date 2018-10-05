@@ -28,6 +28,7 @@ _sections_unfolded = [ "Audio Bus", "Collision", "Material", "Pause", "Pickable"
 velocity = 0.0
 mass = 1.0
 acceleration = 2.99792e+007
+forceNewton = 10000.0
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
