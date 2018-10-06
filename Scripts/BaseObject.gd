@@ -3,6 +3,7 @@ extends Area2D
 export(float, 299792458.0) var velocity = 0
 export(float) var mass = 0
 export(float, 299792458.0) var acceleration = 0
+export(float) var forceNewton
 
 const C = 299792458.0
 
@@ -17,10 +18,17 @@ func lorentz_factor(v):
 	return sqrt(1.0-(pow(v, 2)/pow(C, 2)))
 
 func _physics_process(delta):
+	if velocity >= C:
+		velocity = C - 0.01
 	lorentz_transformation(velocity)
-	$Overlay/Container/VelocityContainer/Value.text = str(velocity)
-	$Overlay/Container/MassContainer/Value.text = str(mass)
-	$Overlay/Container/AccelerationContainer/Value.text = str(acceleration)
+	if forceNewton != null:
+		acceleration = forceNewton/mass
+		$Overlay/Container/ForceContainer/Value.text = "%f N" % forceNewton
+	else:
+		$Overlay/Container/ForceContainer/Value.text = "N/A"
+	$Overlay/Container/VelocityContainer/Value.text = "%f m/s" % velocity
+	$Overlay/Container/MassContainer/Value.text = "%f kg" % mass
+	$Overlay/Container/AccelerationContainer/Value.text = "%f m/s^2" % acceleration
 	if is_showing:
 		$Overlay.rect_position = get_global_mouse_position()-position
 	velocity += acceleration/60.0
