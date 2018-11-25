@@ -11,8 +11,12 @@ config_version=3
 [application]
 
 config/name="Physics Game"
-run/main_scene="res://Objects/BaseObject.tscn"
+run/main_scene="res://MainScene.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/resizable=false
 
 [rendering]
 

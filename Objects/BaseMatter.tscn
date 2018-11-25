@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/BaseMatter.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Ball.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 16.0
+
+[node name="BaseMatter" type="Area2D" groups=[
+"Matter",
+]]
+
+position = Vector2( 239.981, 98.3715 )
+input_pickable = true
+space_override = 1
+gravity_point = true
+gravity_vec = Vector2( 0, 100 )
+gravity = 1024.0
+linear_damp = 0.0
+angular_damp = 0.0
+priority = 2.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Audio Bus", "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index" ]
+Velocity = Vector2( 0, 0 )
+Mass = 1
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+scale = Vector2( 0.0272109, 0.0272109 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+shape = SubResource( 1 )
+
+
