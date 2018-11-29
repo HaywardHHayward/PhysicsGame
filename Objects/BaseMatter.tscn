@@ -12,7 +12,6 @@ radius = 16.0
 "Matter",
 ]]
 
-position = Vector2( 239.981, 98.3715 )
 input_pickable = true
 space_override = 1
 gravity_point = true
@@ -27,6 +26,7 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Audio Bus", "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index" ]
 Velocity = Vector2( 0, 0 )
 Mass = 1
+Radius = 1
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
