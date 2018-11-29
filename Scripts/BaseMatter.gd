@@ -16,17 +16,17 @@ export(Vector2) var Velocity = Vector2(0,0)
 
 export(float, 0, 1e55) var Mass = 1
 
-export(float, 0, 1e50) var Radius = 1
+export(float, 0, 1e50) var Radius = 1 #Cosmetic, doesn't change the physics
 
-const PIXELSPERMETER = 64.0
+const PIXELSPERMETER = 64.0 #For every meter, there are 64.0 pixels
 
-const METERSPERPIXEL = 1/PIXELSPERMETER
+const METERSPERPIXEL = 1/PIXELSPERMETER #For every pixel, there are 1/64 meters
 
 func gravitation(object):
 	var force = G * ((Mass * object.Mass) / pow(distance(object),2))
 	return force
 
-func force(force):
+func acceleration(force):
 	var acceleration = force / Mass
 	return acceleration
 
@@ -43,7 +43,7 @@ func attract():
 	for objectNode in groupNodes:
 			if objectNode != self:
 				var unitVector = relativePosition(objectNode).normalized()
-				Velocity += unitVector * force(gravitation(objectNode))
+				Velocity += unitVector * acceleration(gravitation(objectNode))
 	internalPosition += Velocity*PIXELSPERMETER/60.0
 	position = internalPosition
 
