@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 radius = 16.0
 
-[node name="BaseMatter" type="Area2D" groups=[
+[node name="BaseMatter" type="Area2D" index="0" groups=[
 "Matter",
 ]]
 
@@ -24,9 +24,10 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Audio Bus", "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index" ]
+Name = "Object"
 Velocity = Vector2( 0, 0 )
-Mass = 1
-Radius = 1
+Mass = 1.0
+Radius = 0
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -37,5 +38,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 shape = SubResource( 1 )
+
+[connection signal="clicked" from="." to="." method="_on_BaseMatter_clicked"]
 
 

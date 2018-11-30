@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=1]
-[ext_resource path="res://Objects/BaseMatter.tscn" type="PackedScene" id=2]
-[ext_resource path="res://.import/[Melodic] Shogun Taira - Kingdom of One.ogg-a2a83be642fce734f54b2bcccc2896a8.oggstr" type="AudioStream" id=3]
+[ext_resource path="res://Objects/GUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/BaseMatter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Songs/[Melodic] Shogun Taira - Kingdom of One.ogg" type="AudioStream" id=4]
 
 [node name="MainScene" type="Node" index="0"]
 
@@ -34,22 +35,25 @@ editor_draw_drag_margin = false
 script = ExtResource( 1 )
 _sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Offset", "Smoothing", "Transform" ]
 
-[node name="BaseMatter" parent="." index="1" instance=ExtResource( 2 )]
+[node name="GUI" parent="Camera2D" index="0" instance=ExtResource( 2 )]
+
+[node name="BaseMatter" parent="." index="1" instance=ExtResource( 3 )]
 
 position = Vector2( 512, 300 )
 gravity_point = false
 Mass = 1e+009
-Radius = 5.0
+Radius = 1.25
 
-[node name="BaseMatter3" parent="." index="2" instance=ExtResource( 2 )]
+[node name="BaseMatter3" parent="." index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 200, 200 )
 gravity_point = false
 Velocity = Vector2( 0, 0.7 )
+Radius = 0.25
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="3"]
 
-stream = ExtResource( 3 )
+stream = ExtResource( 4 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true

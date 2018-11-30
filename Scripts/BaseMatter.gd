@@ -8,15 +8,20 @@ onready var groupNodes = treeNode.get_nodes_in_group("Matter")
 
 onready var internalPosition = get_position()
 
+signal clicked
+
 func _ready():
+	self.connect("clicked", treeNode, "_clicked")
 	add_to_group("Matter")
-	scale = Vector2(Radius, Radius)
+	scale = Vector2(Radius, Radius) * 4
+
+export(String) var Name = "Object"
 
 export(Vector2) var Velocity = Vector2(0,0)
 
 export(float, 0, 1e55) var Mass = 1
 
-export(float, 0, 1e50) var Radius = 1 #Cosmetic, doesn't change the physics
+export(float, 0, 1e50) var Radius = 0#Cosmetic, doesn't change the physics
 
 const PIXELSPERMETER = 64.0 #For every meter, there are 64.0 pixels
 
