@@ -11,19 +11,31 @@ onready var mass = $Panel/VBox/Mass/MassLine
 onready var radius = $Panel/VBox/Radius/RadiusLine
 
 func _ready():
-	setObject(selectedObject)
+	hide()
 
 func _process(delta):
-	$Panel/VBox/NameLabel.text = selectedObject.Name
+	if visible:
+		if $Panel/VBox/ChangeMode/CheckButton.pressed:
+			pass
+		else:
+			$Panel/VBox/NameLabel.text = selectedObject.Name
+			$Panel/VBox/TextureRect.texture = selectedObject.get_child(0).texture
+			_name.text = selectedObject.Name
+			velocity[0].text = str(selectedObject.Velocity.x)
+			velocity[1].text = str(selectedObject.Velocity.y)
+			mass.text = str(selectedObject.Mass)
+			radius.text = str(selectedObject.Radius)
+		if Input.is_action_just_pressed("ui_cancel"):
+			hide()
 
 func setObject(object):
 	selectedObject = object
-	$Panel/VBox/TextureRect.texture = object.get_child(0).texture
-	_name.text = object.Name
-	velocity[0].text = str(object.Velocity.x)
-	velocity[1].text = str(object.Velocity.y)
-	mass.text = str(object.Mass)
-	radius.text = str(object.Radius)
+	$Panel/VBox/TextureRect.texture = selectedObject.get_child(0).texture
+	_name.text = selectedObject.Name
+	velocity[0].text = str(selectedObject.Velocity.x)
+	velocity[1].text = str(selectedObject.Velocity.y)
+	mass.text = str(selectedObject.Mass)
+	radius.text = str(selectedObject.Radius)
 
 
 
@@ -46,3 +58,6 @@ func _on_XVelocity_text_entered(new_text):
 func _on_NameLine_text_entered(new_text):
 	selectedObject.Name = new_text
 
+func _clicked(selectObject):
+	show()
+	setObject(selectObject)

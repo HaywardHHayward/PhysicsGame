@@ -11,7 +11,7 @@ onready var internalPosition = get_position()
 signal clicked
 
 func _ready():
-	self.connect("clicked", treeNode, "_clicked")
+	self.connect("clicked", get_parent(), "_clicked")
 	add_to_group("Matter")
 	scale = Vector2(Radius, Radius) * 4
 
@@ -26,6 +26,8 @@ export(float, 0, 1e50) var Radius = 0#Cosmetic, doesn't change the physics
 const PIXELSPERMETER = 64.0 #For every meter, there are 64.0 pixels
 
 const METERSPERPIXEL = 1/PIXELSPERMETER #For every pixel, there are 1/64 meters
+
+var isMouseIn = false
 
 func gravitation(object):
 	var force = G * ((Mass * object.Mass) / pow(distance(object),2))
@@ -54,3 +56,12 @@ func attract():
 
 func _physics_process(delta):
 	attract()
+	if Input.is_action_just_pressed("mouse_m1") and isMouseIn:
+		emit_signal("clicked", self)
+	scale = Vector2(Radius, Radius) * 4
+
+func _on_BaseMatter_mouse_entered():
+	isMouseIn = true
+
+func _on_BaseMatter_mouse_exited():
+	isMouseIn = false

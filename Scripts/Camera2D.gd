@@ -6,8 +6,6 @@ func _ready():
 	pass
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_cancel"):
-		get_tree().quit()
 	if Input.is_action_pressed("ui_zoom_in"):
 		if Input.is_key_pressed(KEY_SHIFT):
 			cameraZoom /= 1.1
