@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Objects/ObjectEditor.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/ObjectEditor.gd" type="Script" id=1]
 
 [sub_resource type="ShortCut" id=1]
 
@@ -13,7 +13,7 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="ObjectEditor" type="MarginContainer" parent="." index="0"]
+[node name="ObjectViewer" type="MarginContainer" parent="." index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -31,7 +31,7 @@ size_flags_vertical = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Rect" ]
 
-[node name="Panel" type="PanelContainer" parent="ObjectEditor" index="0"]
+[node name="Panel" type="PanelContainer" parent="ObjectViewer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -48,7 +48,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="VBox" type="VBoxContainer" parent="ObjectEditor/Panel" index="0"]
+[node name="VBox" type="VBoxContainer" parent="ObjectViewer/Panel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -64,9 +64,11 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_constants/separation = 8
 alignment = 0
+_sections_unfolded = [ "custom_constants" ]
 
-[node name="NameLabel" type="Label" parent="ObjectEditor/Panel/VBox" index="0"]
+[node name="NameLabel" type="Label" parent="ObjectViewer/Panel/VBox" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -86,15 +88,15 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="TextureRect" type="TextureRect" parent="ObjectEditor/Panel/VBox" index="1"]
+[node name="TextureRect" type="TextureRect" parent="ObjectViewer/Panel/VBox" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 18.0
+margin_top = 22.0
 margin_right = 183.0
-margin_bottom = 196.0
+margin_bottom = 200.0
 rect_min_size = Vector2( 178, 178 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -106,15 +108,115 @@ expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Name" type="HBoxContainer" parent="ObjectEditor/Panel/VBox" index="2"]
+[node name="ColorSelector" type="VBoxContainer" parent="ObjectViewer/Panel/VBox" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 200.0
+margin_top = 208.0
 margin_right = 183.0
-margin_bottom = 224.0
+margin_bottom = 264.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Red" type="HSlider" parent="ObjectViewer/Panel/VBox/ColorSelector" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 183.0
+margin_bottom = 16.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+min_value = 0.0
+max_value = 255.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = true
+editable = true
+tick_count = 255
+ticks_on_borders = false
+focus_mode = 2
+
+[node name="Green" type="HSlider" parent="ObjectViewer/Panel/VBox/ColorSelector" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 20.0
+margin_right = 183.0
+margin_bottom = 36.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+min_value = 0.0
+max_value = 255.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = true
+editable = true
+tick_count = 255
+ticks_on_borders = false
+focus_mode = 2
+
+[node name="Blue" type="HSlider" parent="ObjectViewer/Panel/VBox/ColorSelector" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 40.0
+margin_right = 183.0
+margin_bottom = 56.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+min_value = 0.0
+max_value = 255.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = true
+editable = true
+tick_count = 255
+ticks_on_borders = false
+focus_mode = 2
+
+[node name="Name" type="HBoxContainer" parent="ObjectViewer/Panel/VBox" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 272.0
+margin_right = 183.0
+margin_bottom = 296.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -124,7 +226,7 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
-[node name="Label" type="Label" parent="ObjectEditor/Panel/VBox/Name" index="0"]
+[node name="Label" type="Label" parent="ObjectViewer/Panel/VBox/Name" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -144,7 +246,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="NameLine" type="LineEdit" parent="ObjectEditor/Panel/VBox/Name" index="1"]
+[node name="NameLine" type="LineEdit" parent="ObjectViewer/Panel/VBox/Name" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -169,15 +271,15 @@ caret_blink_speed = 0.65
 caret_position = 0
 _sections_unfolded = [ "Anchor", "Caret", "Grow Direction", "Margin", "Placeholder" ]
 
-[node name="Velocity" type="HBoxContainer" parent="ObjectEditor/Panel/VBox" index="3"]
+[node name="Velocity" type="HBoxContainer" parent="ObjectViewer/Panel/VBox" index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 228.0
+margin_top = 304.0
 margin_right = 183.0
-margin_bottom = 252.0
+margin_bottom = 328.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -187,7 +289,7 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
-[node name="Label" type="Label" parent="ObjectEditor/Panel/VBox/Velocity" index="0"]
+[node name="Label" type="Label" parent="ObjectViewer/Panel/VBox/Velocity" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -207,7 +309,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="XVelocity" type="LineEdit" parent="ObjectEditor/Panel/VBox/Velocity" index="1"]
+[node name="XVelocity" type="LineEdit" parent="ObjectViewer/Panel/VBox/Velocity" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -232,7 +334,7 @@ caret_blink_speed = 0.65
 caret_position = 0
 _sections_unfolded = [ "Anchor", "Caret", "Grow Direction", "Margin", "Placeholder" ]
 
-[node name="YVelocity" type="LineEdit" parent="ObjectEditor/Panel/VBox/Velocity" index="2"]
+[node name="YVelocity" type="LineEdit" parent="ObjectViewer/Panel/VBox/Velocity" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -257,15 +359,15 @@ caret_blink_speed = 0.65
 caret_position = 0
 _sections_unfolded = [ "Anchor", "Caret", "Grow Direction", "Margin", "Placeholder" ]
 
-[node name="Mass" type="HBoxContainer" parent="ObjectEditor/Panel/VBox" index="4"]
+[node name="Mass" type="HBoxContainer" parent="ObjectViewer/Panel/VBox" index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 256.0
+margin_top = 336.0
 margin_right = 183.0
-margin_bottom = 280.0
+margin_bottom = 360.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -275,7 +377,7 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
-[node name="Label" type="Label" parent="ObjectEditor/Panel/VBox/Mass" index="0"]
+[node name="Label" type="Label" parent="ObjectViewer/Panel/VBox/Mass" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -295,7 +397,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="MassLine" type="LineEdit" parent="ObjectEditor/Panel/VBox/Mass" index="1"]
+[node name="MassLine" type="LineEdit" parent="ObjectViewer/Panel/VBox/Mass" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -320,15 +422,36 @@ caret_blink_speed = 0.65
 caret_position = 0
 _sections_unfolded = [ "Anchor", "Caret", "Grow Direction", "Margin", "Placeholder" ]
 
-[node name="Radius" type="HBoxContainer" parent="ObjectEditor/Panel/VBox" index="5"]
+[node name="Label2" type="Label" parent="ObjectViewer/Panel/VBox/Mass" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 284.0
+margin_left = 107.0
+margin_top = 5.0
+margin_right = 169.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "kilograms"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Radius" type="HBoxContainer" parent="ObjectViewer/Panel/VBox" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 368.0
 margin_right = 183.0
-margin_bottom = 308.0
+margin_bottom = 392.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -338,7 +461,7 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
-[node name="Label" type="Label" parent="ObjectEditor/Panel/VBox/Radius" index="0"]
+[node name="Label" type="Label" parent="ObjectViewer/Panel/VBox/Radius" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -358,7 +481,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="RadiusLine" type="LineEdit" parent="ObjectEditor/Panel/VBox/Radius" index="1"]
+[node name="RadiusLine" type="LineEdit" parent="ObjectViewer/Panel/VBox/Radius" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -383,15 +506,36 @@ caret_blink_speed = 0.65
 caret_position = 0
 _sections_unfolded = [ "Anchor", "Caret", "Grow Direction", "Margin", "Placeholder" ]
 
-[node name="ChangeMode" type="HBoxContainer" parent="ObjectEditor/Panel/VBox" index="6"]
+[node name="Label2" type="Label" parent="ObjectViewer/Panel/VBox/Radius" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 312.0
+margin_left = 108.0
+margin_top = 5.0
+margin_right = 154.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "meters"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="ChangeMode" type="HBoxContainer" parent="ObjectViewer/Panel/VBox" index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 400.0
 margin_right = 183.0
-margin_bottom = 352.0
+margin_bottom = 440.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -400,7 +544,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="ChangeLabel" type="Label" parent="ObjectEditor/Panel/VBox/ChangeMode" index="0"]
+[node name="ChangeLabel" type="Label" parent="ObjectViewer/Panel/VBox/ChangeMode" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -420,7 +564,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="CheckButton" type="CheckButton" parent="ObjectEditor/Panel/VBox/ChangeMode" index="1"]
+[node name="CheckButton" type="CheckButton" parent="ObjectViewer/Panel/VBox/ChangeMode" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -443,14 +587,208 @@ group = null
 flat = false
 align = 0
 
-[connection signal="text_entered" from="ObjectEditor/Panel/VBox/Name/NameLine" to="ObjectEditor" method="_on_NameLine_text_entered"]
+[node name="DistanceToBox" type="VBoxContainer" parent="ObjectViewer/Panel/VBox" index="8"]
 
-[connection signal="text_entered" from="ObjectEditor/Panel/VBox/Velocity/XVelocity" to="ObjectEditor" method="_on_XVelocity_text_entered"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 448.0
+margin_right = 183.0
+margin_bottom = 486.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Margin" ]
 
-[connection signal="text_entered" from="ObjectEditor/Panel/VBox/Velocity/YVelocity" to="ObjectEditor" method="_on_YVelocity_text_entered"]
+[node name="ObjectSelector" type="HBoxContainer" parent="ObjectViewer/Panel/VBox/DistanceToBox" index="0"]
 
-[connection signal="text_entered" from="ObjectEditor/Panel/VBox/Mass/MassLine" to="ObjectEditor" method="_on_MassLine_text_entered"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 183.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Margin" ]
 
-[connection signal="text_entered" from="ObjectEditor/Panel/VBox/Radius/RadiusLine" to="ObjectEditor" method="_on_RadiusLine_text_entered"]
+[node name="Label" type="Label" parent="ObjectViewer/Panel/VBox/DistanceToBox/ObjectSelector" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 3.0
+margin_right = 73.0
+margin_bottom = 17.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Distance to"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="OptionButton" type="OptionButton" parent="ObjectViewer/Panel/VBox/DistanceToBox/ObjectSelector" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 77.0
+margin_right = 116.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+items = [  ]
+selected = -1
+_sections_unfolded = [ "Material", "Mouse", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_fonts", "custom_icons", "custom_styles" ]
+
+[node name="Label" type="Label" parent="ObjectViewer/Panel/VBox/DistanceToBox" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 24.0
+margin_right = 183.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="MarginContainer" type="MarginContainer" parent="ObjectViewer/Panel/VBox" index="9"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 494.0
+margin_right = 183.0
+margin_bottom = 504.0
+rect_min_size = Vector2( 0, 10 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Speed" type="HBoxContainer" parent="ObjectViewer/Panel/VBox" index="10"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 512.0
+margin_right = 183.0
+margin_bottom = 526.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="SpeedLabel" type="Label" parent="ObjectViewer/Panel/VBox/Speed" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 43.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Speed:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Speed" type="Label" parent="ObjectViewer/Panel/VBox/Speed" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 47.0
+margin_right = 47.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="MPS" type="Label" parent="ObjectViewer/Panel/VBox/Speed" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 51.0
+margin_right = 76.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "m/s"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="text_entered" from="ObjectViewer/Panel/VBox/Name/NameLine" to="ObjectViewer" method="_on_NameLine_text_entered"]
+
+[connection signal="text_entered" from="ObjectViewer/Panel/VBox/Velocity/XVelocity" to="ObjectViewer" method="_on_XVelocity_text_entered"]
+
+[connection signal="text_entered" from="ObjectViewer/Panel/VBox/Velocity/YVelocity" to="ObjectViewer" method="_on_YVelocity_text_entered"]
+
+[connection signal="text_entered" from="ObjectViewer/Panel/VBox/Mass/MassLine" to="ObjectViewer" method="_on_MassLine_text_entered"]
+
+[connection signal="text_entered" from="ObjectViewer/Panel/VBox/Radius/RadiusLine" to="ObjectViewer" method="_on_RadiusLine_text_entered"]
 
 

@@ -29,6 +29,8 @@ const METERSPERPIXEL = 1/PIXELSPERMETER #For every pixel, there are 1/64 meters
 
 var isMouseIn = false
 
+onready var color = Vector3($Sprite.modulate.r, $Sprite.modulate.g, $Sprite.modulate.b)
+
 func gravitation(object):
 	var force = G * ((Mass * object.Mass) / pow(distance(object),2))
 	return force
@@ -50,12 +52,13 @@ func attract():
 	for objectNode in groupNodes:
 			if objectNode != self:
 				var unitVector = relativePosition(objectNode).normalized()
-				Velocity += unitVector * acceleration(gravitation(objectNode))
+				Velocity += unitVector * acceleration(gravitation(objectNode))/60.0
 	internalPosition += Velocity*PIXELSPERMETER/60.0
 	position = internalPosition
 
 func _physics_process(delta):
 	attract()
+	$Sprite.modulate = Color(color.x, color.y, color.z)
 	if Input.is_action_just_pressed("mouse_m1") and isMouseIn:
 		emit_signal("clicked", self)
 	scale = Vector2(Radius, Radius) * 4
