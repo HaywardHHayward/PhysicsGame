@@ -10,6 +10,8 @@ onready var internalPosition = get_position()
 
 signal clicked
 
+var isPaused = false
+
 func _ready():
 	self.connect("clicked", get_parent(), "_clicked")
 	add_to_group("Matter")
@@ -48,7 +50,7 @@ func relativePosition(object):
 func distance(object):
 	return internalPosition.distance_to(object.internalPosition)*METERSPERPIXEL
 
-func attract():
+func move():
 	for objectNode in groupNodes:
 			if objectNode != self:
 				var unitVector = relativePosition(objectNode).normalized()
@@ -57,7 +59,8 @@ func attract():
 	position = internalPosition
 
 func _physics_process(delta):
-	attract()
+	if isPaused == false:
+		move()
 	$Sprite.modulate = Color(color.x, color.y, color.z)
 	if Input.is_action_just_pressed("mouse_m1") and isMouseIn:
 		emit_signal("clicked", self)
@@ -68,3 +71,9 @@ func _on_BaseMatter_mouse_entered():
 
 func _on_BaseMatter_mouse_exited():
 	isMouseIn = false
+	
+func paused():
+	isPaused = true
+	
+func unpaused():
+	isPaused = false
