@@ -89,11 +89,3 @@ func _on_NameLine_text_entered(new_text):
 func _clicked(selectObject):
 	show()
 	setObject(selectObject)
-	
-func _gui_input(event):
-	if event.is_action_pressed("mouse_m1"):
-		emit_signal("ignoreClick", true)
-	if event.is_action_released("mouse_m1"):
-		emit_signal("ignoreClick", false)
-	accept_event()
-		

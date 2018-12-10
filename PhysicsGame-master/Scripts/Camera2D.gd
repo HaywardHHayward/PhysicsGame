@@ -49,3 +49,4 @@ func _process(delta):
 			position.x -= cameraZoom.x
 		else:
 			position.x -= 5*cameraZoom.x
+
