@@ -20,7 +20,7 @@ func _ready():
 func _process(delta):
 	if visible:
 		groupNodes = get_tree().get_nodes_in_group("Matter")
-		var numberThingy = $Panel/VBox/DistanceToBox/ObjectSelector/OptionButton.get_item_count()
+		var numberThingy = $Panel/VBox/DistanceToBox/ObjectSelector/OptionButton.get_item_count()			
 		while len(groupNodes) > numberThingy:
 			$Panel/VBox/DistanceToBox/ObjectSelector/OptionButton.add_item(groupNodes[numberThingy].Name)
 			numberThingy += 1
@@ -33,7 +33,7 @@ func _process(delta):
 		else:
 			$Panel/VBox/NameLabel.text = selectedObject.Name
 			$Panel/VBox/TextureRect.texture = selectedObject.get_child(0).texture
-			$Panel/VBox/TextureRect.modulate = selectedObject.get_child(0).modulate
+			$Panel/VBox
 			_name.text = selectedObject.Name
 			velocity[0].text = str(selectedObject.Velocity.x)
 			velocity[1].text = str(selectedObject.Velocity.y)
@@ -53,7 +53,7 @@ func _process(delta):
 		if Input.is_action_just_pressed("ui_cancel"):
 			hide()
 
-func setObject(object):
+func setObject(object, collided_object = false, oldObject = null):
 	selectedObject = object
 	$Panel/VBox/TextureRect.texture = selectedObject.get_child(0).texture
 	_name.text = selectedObject.Name
@@ -64,7 +64,8 @@ func setObject(object):
 	$Panel/VBox/ColorSelector/Red.value = selectedObject.color.x * 255
 	$Panel/VBox/ColorSelector/Green.value = selectedObject.color.y * 255
 	$Panel/VBox/ColorSelector/Blue.value = selectedObject.color.z * 255
-
+	if collided_object:
+		emit_signal("objectDelete", oldObject)
 
 
 func _on_RadiusLine_text_entered(new_text):
