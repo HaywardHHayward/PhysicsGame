@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/BaseMatter.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Ball.png" type="Texture" id=2]
@@ -7,6 +7,52 @@
 
 custom_solver_bias = 0.0
 radius = 16.0
+
+[sub_resource type="CanvasItemMaterial" id=2]
+
+render_priority = 0
+blend_mode = 0
+light_mode = 0
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="ParticlesMaterial" id=3]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 0.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 0.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 4.0
+scale_random = 0.0
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angle", "Angular Velocity", "Animation", "Color", "Damping", "Emission Shape", "Flags", "Gravity", "Hue Variation", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Radial Accel", "Resource", "Scale", "Spread", "Tangential Accel", "Trail" ]
 
 [node name="BaseMatter" type="Area2D" groups=[
 "Matter",
@@ -27,7 +73,7 @@ _sections_unfolded = [ "Audio Bus", "Collision", "Material", "Pause", "Pickable"
 Name = "Object"
 Velocity = Vector2( 0, 0 )
 Mass = 1.0
-Radius = 0
+Radius = 0.25
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -37,11 +83,77 @@ _sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform",
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-visible = false
 shape = SubResource( 1 )
+
+[node name="Distance" type="PanelContainer" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 14.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "Size Flags", "Theme", "custom_styles" ]
+
+[node name="Label" type="Label" parent="Distance" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 50.0
+margin_bottom = 21.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Object"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "Size Flags", "Theme", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="Particles2D" type="Particles2D" parent="." index="3"]
+
+show_behind_parent = true
+material = SubResource( 2 )
+emitting = true
+amount = 100000
+lifetime = 60.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -500000, -500000, 1e+006, 1e+006 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 3 )
+texture = null
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Material", "Pause", "Process Material", "Textures", "Time", "Visibility" ]
+
+[connection signal="area_entered" from="." to="." method="_on_BaseMatter_area_entered"]
 
 [connection signal="mouse_entered" from="." to="." method="_on_BaseMatter_mouse_entered"]
 
 [connection signal="mouse_exited" from="." to="." method="_on_BaseMatter_mouse_exited"]
+
+[connection signal="newObject" from="." to="." method="_on_BaseMatter_newObject"]
 
 

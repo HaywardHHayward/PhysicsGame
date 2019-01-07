@@ -12,8 +12,6 @@ config_version=3
 
 config/name="Physics Game"
 run/main_scene="res://Objects/MainScene.tscn"
-run/disable_stdout=true
-run/disable_stderr=true
 config/icon="res://icon.jpg"
 
 [display]
@@ -45,4 +43,5 @@ mouse_m2=[ Object(InputEventMouseButton,"resource_local_to_scene":false,"resourc
 
 [rendering]
 
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

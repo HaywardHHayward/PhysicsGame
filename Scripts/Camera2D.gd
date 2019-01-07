@@ -2,9 +2,6 @@ extends Camera2D
 
 onready var cameraZoom = get_zoom()
 
-func _ready():
-	pass
-
 func _process(delta):
 	if Input.is_action_pressed("ui_zoom_in"):
 		if Input.is_key_pressed(KEY_SHIFT):

@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/ObjectViewer.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/ObjectEditor.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Time Scale.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/AddObject.gd" type="Script" id=3]
 
 [sub_resource type="ShortCut" id=1]
 
 
-[node name="GUI" type="CanvasLayer"]
+[node name="GUI" type="CanvasLayer" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -20,8 +21,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 819.0
-margin_right = 1024.0
+margin_left = 824.0
+margin_right = 1021.0
 margin_bottom = 540.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -29,11 +30,12 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_constants/margin_right = 0
+custom_constants/margin_top = 0
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Rect" ]
-__meta__ = {
-"_edit_group_": true
-}
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "custom_constants" ]
 
 [node name="Panel" type="PanelContainer" parent="ObjectViewer" index="0"]
 
@@ -41,16 +43,15 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 8.0
-margin_right = 205.0
+margin_right = 197.0
 margin_bottom = 540.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-mouse_filter = 0
+mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Mouse", "Rect" ]
 
 [node name="VBox" type="VBoxContainer" parent="ObjectViewer/Panel" index="0"]
 
@@ -261,19 +262,19 @@ margin_right = 108.0
 margin_bottom = 24.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-focus_mode = 2
+focus_mode = 1
 mouse_filter = 0
 mouse_default_cursor_shape = 1
 size_flags_horizontal = 1
 size_flags_vertical = 1
 align = 1
-focus_mode = 2
-context_menu_enabled = false
+focus_mode = 1
+context_menu_enabled = true
 placeholder_alpha = 0.6
 caret_blink = false
 caret_blink_speed = 0.65
 caret_position = 0
-_sections_unfolded = [ "Anchor", "Caret", "Grow Direction", "Margin", "Placeholder" ]
+_sections_unfolded = [ "Anchor", "Caret", "Focus", "Grow Direction", "Margin", "Mouse", "Placeholder", "Size Flags", "Theme", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
 [node name="Velocity" type="HBoxContainer" parent="ObjectViewer/Panel/VBox" index="4"]
 
@@ -324,14 +325,14 @@ margin_right = 121.0
 margin_bottom = 24.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-focus_mode = 2
+focus_mode = 1
 mouse_filter = 0
 mouse_default_cursor_shape = 1
 size_flags_horizontal = 1
 size_flags_vertical = 1
 align = 1
-focus_mode = 2
-context_menu_enabled = false
+focus_mode = 1
+context_menu_enabled = true
 placeholder_alpha = 0.6
 caret_blink = false
 caret_blink_speed = 0.65
@@ -349,14 +350,14 @@ margin_right = 183.0
 margin_bottom = 24.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-focus_mode = 2
+focus_mode = 1
 mouse_filter = 0
 mouse_default_cursor_shape = 1
 size_flags_horizontal = 1
 size_flags_vertical = 1
 align = 1
-focus_mode = 2
-context_menu_enabled = false
+focus_mode = 1
+context_menu_enabled = true
 placeholder_alpha = 0.6
 caret_blink = false
 caret_blink_speed = 0.65
@@ -412,19 +413,19 @@ margin_right = 103.0
 margin_bottom = 24.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-focus_mode = 2
+focus_mode = 1
 mouse_filter = 0
 mouse_default_cursor_shape = 1
 size_flags_horizontal = 1
 size_flags_vertical = 1
 align = 1
-focus_mode = 2
-context_menu_enabled = false
+focus_mode = 1
+context_menu_enabled = true
 placeholder_alpha = 0.6
 caret_blink = false
 caret_blink_speed = 0.65
 caret_position = 0
-_sections_unfolded = [ "Anchor", "Caret", "Grow Direction", "Margin", "Placeholder" ]
+_sections_unfolded = [ "Anchor", "Caret", "Grow Direction", "Margin", "Mouse", "Placeholder", "Size Flags", "Theme", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
 [node name="Label2" type="Label" parent="ObjectViewer/Panel/VBox/Mass" index="2"]
 
@@ -496,14 +497,14 @@ margin_right = 104.0
 margin_bottom = 24.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-focus_mode = 2
+focus_mode = 1
 mouse_filter = 0
 mouse_default_cursor_shape = 1
 size_flags_horizontal = 1
 size_flags_vertical = 1
 align = 1
-focus_mode = 2
-context_menu_enabled = false
+focus_mode = 1
+context_menu_enabled = true
 placeholder_alpha = 0.6
 caret_blink = false
 caret_blink_speed = 0.65
@@ -668,10 +669,11 @@ enabled_focus_mode = 2
 shortcut = null
 group = null
 flat = false
+clip_text = true
 align = 0
 items = [  ]
 selected = -1
-_sections_unfolded = [ "Material", "Mouse", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_fonts", "custom_icons", "custom_styles" ]
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_icons", "custom_styles" ]
 
 [node name="Label" type="Label" parent="ObjectViewer/Panel/VBox/DistanceToBox" index="1"]
 
@@ -796,7 +798,7 @@ margin_right = 1024.0
 margin_bottom = 600.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-mouse_filter = 0
+mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
@@ -817,10 +819,11 @@ margin_right = 1024.0
 margin_bottom = 60.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-mouse_filter = 0
+mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+_sections_unfolded = [ "Mouse" ]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Time Scale/PanelContainer" index="0"]
 
@@ -839,6 +842,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
+_sections_unfolded = [ "Size Flags" ]
 
 [node name="PauseButton" type="CheckButton" parent="Time Scale/PanelContainer/HBoxContainer" index="0"]
 
@@ -865,14 +869,41 @@ flat = false
 align = 2
 _sections_unfolded = [ "Grow Direction", "Hint", "Margin", "Mouse", "Pause", "Rect", "Size Flags", "custom_constants" ]
 
-[node name="TimePassed" type="HBoxContainer" parent="Time Scale/PanelContainer/HBoxContainer" index="1"]
+[node name="TimeScale" type="SpinBox" parent="Time Scale/PanelContainer/HBoxContainer" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 122.0
-margin_right = 211.0
+margin_right = 196.0
+margin_bottom = 46.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.01
+max_value = 100.0
+step = 0.01
+page = 0.0
+value = 1.0
+exp_edit = true
+rounded = false
+editable = true
+prefix = ""
+suffix = ""
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_icons" ]
+
+[node name="TimePassed" type="HBoxContainer" parent="Time Scale/PanelContainer/HBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 200.0
+margin_right = 289.0
 margin_bottom = 46.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -923,6 +954,568 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="ObjectAdder" type="MarginContainer" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 197.0
+margin_bottom = 540.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/margin_right = 0
+custom_constants/margin_top = 0
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Mouse", "Rect", "custom_constants" ]
+
+[node name="PanelContainer2" type="PanelContainer" parent="ObjectAdder" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 197.0
+margin_bottom = 540.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Mouse", "Rect", "Size Flags", "Theme", "custom_styles" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ObjectAdder/PanelContainer2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 190.0
+margin_bottom = 533.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="CheckButton" type="CheckButton" parent="ObjectAdder/PanelContainer2/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 183.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Adding object?"
+flat = false
+align = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ObjectAdder/PanelContainer2/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 44.0
+margin_right = 183.0
+margin_bottom = 412.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="NameLabel2" type="Label" parent="ObjectAdder/PanelContainer2/VBoxContainer/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 183.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="TextureRect2" type="TextureRect" parent="ObjectAdder/PanelContainer2/VBoxContainer/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 18.0
+margin_right = 183.0
+margin_bottom = 196.0
+rect_min_size = Vector2( 178, 178 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Rect", "Visibility" ]
+
+[node name="ColorSelector2" type="VBoxContainer" parent="ObjectAdder/PanelContainer2/VBoxContainer/VBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 200.0
+margin_right = 183.0
+margin_bottom = 256.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Anchor", "Margin" ]
+
+[node name="Red" type="HSlider" parent="ObjectAdder/PanelContainer2/VBoxContainer/VBoxContainer/ColorSelector2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 183.0
+margin_bottom = 16.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+min_value = 0.0
+max_value = 255.0
+step = 1.0
+page = 0.0
+value = 255.0
+exp_edit = false
+rounded = true
+editable = true
+tick_count = 255
+ticks_on_borders = false
+focus_mode = 2
+_sections_unfolded = [ "Anchor", "Focus", "Hint", "Margin", "Mouse", "Size Flags" ]
+
+[node name="Green" type="HSlider" parent="ObjectAdder/PanelContainer2/VBoxContainer/VBoxContainer/ColorSelector2" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 20.0
+margin_right = 183.0
+margin_bottom = 36.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+min_value = 0.0
+max_value = 255.0
+step = 1.0
+page = 0.0
+value = 255.0
+exp_edit = false
+rounded = true
+editable = true
+tick_count = 255
+ticks_on_borders = false
+focus_mode = 2
+
+[node name="Blue" type="HSlider" parent="ObjectAdder/PanelContainer2/VBoxContainer/VBoxContainer/ColorSelector2" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 40.0
+margin_right = 183.0
+margin_bottom = 56.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+min_value = 0.0
+max_value = 255.0
+step = 1.0
+page = 0.0
+value = 255.0
+exp_edit = false
+rounded = true
+editable = true
+tick_count = 255
+ticks_on_borders = false
+focus_mode = 2
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Name2" type="HBoxContainer" parent="ObjectAdder/PanelContainer2/VBoxContainer/VBoxContainer" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 260.0
+margin_right = 183.0
+margin_bottom = 284.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
+
+[node name="Label" type="Label" parent="ObjectAdder/PanelContainer2/VBoxContainer/VBoxContainer/Name2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 5.0
+margin_right = 46.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Name: "
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="NameLine" type="LineEdit" parent="ObjectAdder/PanelContainer2/VBoxContainer/VBoxContainer/Name2" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 50.0
+margin_right = 108.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 1
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "Object"
+align = 1
+focus_mode = 1
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = false
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Anchor", "Caret", "Grow Direction", "Margin", "Placeholder" ]
+
+[node name="Velocity2" type="HBoxContainer" parent="ObjectAdder/PanelContainer2/VBoxContainer/VBoxContainer" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 288.0
+margin_right = 183.0
+margin_bottom = 312.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
+
+[node name="Label" type="Label" parent="ObjectAdder/PanelContainer2/VBoxContainer/VBoxContainer/Velocity2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 5.0
+margin_right = 59.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Velocity: "
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="XVelocity" type="LineEdit" parent="ObjectAdder/PanelContainer2/VBoxContainer/VBoxContainer/Velocity2" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 63.0
+margin_right = 121.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 1
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "0"
+align = 1
+focus_mode = 1
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = false
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Anchor", "Caret", "Grow Direction", "Margin", "Placeholder" ]
+
+[node name="YVelocity" type="LineEdit" parent="ObjectAdder/PanelContainer2/VBoxContainer/VBoxContainer/Velocity2" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 125.0
+margin_right = 183.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 1
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "0"
+align = 1
+focus_mode = 1
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = false
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Anchor", "Caret", "Grow Direction", "Margin", "Placeholder" ]
+
+[node name="Mass2" type="HBoxContainer" parent="ObjectAdder/PanelContainer2/VBoxContainer/VBoxContainer" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 316.0
+margin_right = 183.0
+margin_bottom = 340.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
+
+[node name="Label" type="Label" parent="ObjectAdder/PanelContainer2/VBoxContainer/VBoxContainer/Mass2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 5.0
+margin_right = 41.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Mass: "
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="MassLine" type="LineEdit" parent="ObjectAdder/PanelContainer2/VBoxContainer/VBoxContainer/Mass2" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 45.0
+margin_right = 103.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 1
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "1"
+align = 1
+focus_mode = 1
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = false
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Anchor", "Caret", "Grow Direction", "Margin", "Placeholder" ]
+
+[node name="Label2" type="Label" parent="ObjectAdder/PanelContainer2/VBoxContainer/VBoxContainer/Mass2" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 107.0
+margin_top = 5.0
+margin_right = 169.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "kilograms"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Radius2" type="HBoxContainer" parent="ObjectAdder/PanelContainer2/VBoxContainer/VBoxContainer" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 344.0
+margin_right = 183.0
+margin_bottom = 368.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
+
+[node name="Label" type="Label" parent="ObjectAdder/PanelContainer2/VBoxContainer/VBoxContainer/Radius2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 5.0
+margin_right = 42.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Radius"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="RadiusLine" type="LineEdit" parent="ObjectAdder/PanelContainer2/VBoxContainer/VBoxContainer/Radius2" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 46.0
+margin_right = 104.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 1
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "0.25"
+align = 1
+focus_mode = 1
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = false
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Anchor", "Caret", "Grow Direction", "Margin", "Placeholder" ]
+
+[node name="Label2" type="Label" parent="ObjectAdder/PanelContainer2/VBoxContainer/VBoxContainer/Radius2" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 108.0
+margin_top = 5.0
+margin_right = 154.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "meters"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [connection signal="text_entered" from="ObjectViewer/Panel/VBox/Name/NameLine" to="ObjectViewer" method="_on_NameLine_text_entered"]
 
 [connection signal="text_entered" from="ObjectViewer/Panel/VBox/Velocity/XVelocity" to="ObjectViewer" method="_on_XVelocity_text_entered"]
@@ -934,5 +1527,11 @@ max_lines_visible = -1
 [connection signal="text_entered" from="ObjectViewer/Panel/VBox/Radius/RadiusLine" to="ObjectViewer" method="_on_RadiusLine_text_entered"]
 
 [connection signal="toggled" from="Time Scale/PanelContainer/HBoxContainer/PauseButton" to="Time Scale" method="_on_PauseButton_toggled"]
+
+[connection signal="toggled" from="Time Scale/PanelContainer/HBoxContainer/PauseButton" to="ObjectAdder" method="_on_PauseButton_toggled"]
+
+[connection signal="value_changed" from="Time Scale/PanelContainer/HBoxContainer/TimeScale" to="Time Scale" method="_on_TimeScale_value_changed"]
+
+[connection signal="toggled" from="ObjectAdder/PanelContainer2/VBoxContainer/CheckButton" to="ObjectAdder" method="_on_CheckButton_toggled"]
 
 
